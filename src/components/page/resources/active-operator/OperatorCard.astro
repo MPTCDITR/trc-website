@@ -16,6 +16,7 @@ interface Props {
   descriptionTwo?: string;
   descriptionThree?: string;
   descriptionFour?: string;
+  descriptionFive?: string;
   phone: string;
   number: number;
   address: string;
@@ -32,6 +33,7 @@ const {
   descriptionTwo,
   descriptionThree,
   descriptionFour,
+  descriptionFive,
 } = Astro.props as Props;
 
 const phoneNumberArray = phone.split("/");
@@ -107,6 +109,17 @@ const dateFormat = (num: number) => {
         <div class="grid w-full items-center rounded-lg border p-2">
           <TextElement variant="body" className="text-center ">
             {descriptionFour}
+          </TextElement>
+        </div>
+      ) : (
+        ""
+      )
+    }
+    {
+      descriptionFour != "NULL" ? (
+        <div class="grid w-full items-center rounded-lg border p-2">
+          <TextElement variant="body" className="text-center ">
+            {descriptionFive}
           </TextElement>
         </div>
       ) : (

@@ -52,6 +52,7 @@ const activeSchema = ({ image }: SchemaContext) =>
     descriptionTwo: z.string().default("NULL"),
     descriptionThree: z.string().default("NULL"),
     descriptionFour: z.string().default("NULL"),
+    descriptionFive: z.string().default("NULL"),
     lang: z.enum(SupportedLanguage),
   });
 
