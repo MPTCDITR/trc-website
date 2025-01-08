@@ -26,7 +26,7 @@ let baseUrl = "";
 if (page.currentPage === 1) {
   baseUrl = page.url.current;
 } else {
-  const url = Astro.url.pathname;
+  const url = page.url.current;
   const splitUrl = url.split("/");
   baseUrl = splitUrl.slice(0, -1).join("/");
 }
