@@ -21,8 +21,8 @@ interface Props {
 }
 
 const { page } = Astro.props;
-
-const baseUrl = page.url.first || page.url.current;
+let baseUrl = page.url.first || Astro.url.pathname;
+baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
 const isActive = (index: number) => {
   if (page.currentPage === index) {
     return true;
@@ -114,7 +114,7 @@ const dateFormat = (num: number) => {
       <PaginationItem>
         <PaginationLink
           className="text-base font-normal"
-          href={baseUrl}
+          href={page.url.first}
           isActive={isActive(1)}>{dateFormat(1)}</PaginationLink
         >
       </PaginationItem>
@@ -130,7 +130,7 @@ const dateFormat = (num: number) => {
           <PaginationItem>
             <PaginationLink
               className="text-base font-normal"
-              href={`${baseUrl}/${page}`}
+              href={`${baseUrl}${page}`}
               isActive={isActive(page)}
             >
               {dateFormat(page)}
