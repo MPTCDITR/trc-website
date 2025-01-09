@@ -28,7 +28,7 @@ if (page.currentPage === 1) {
 } else {
   const url = page.url.current;
   const splitUrl = url.split("/");
-  baseUrl = splitUrl.slice(0, -1).join("/");
+  baseUrl = splitUrl.slice(0, splitUrl.length - 2).join("/");
 }
 const isActive = (index: number) => {
   if (page.currentPage === index) {
