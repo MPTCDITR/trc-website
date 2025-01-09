@@ -22,14 +22,7 @@ interface Props {
 
 const { page } = Astro.props;
 
-let baseUrl = "";
-if (page.currentPage === 1) {
-  baseUrl = page.url.current;
-} else {
-  const url = page.url.current;
-  const splitUrl = url.split("/");
-  baseUrl = splitUrl.slice(0, splitUrl.length - 2).join("/");
-}
+const baseUrl = page.url.first || page.url.current;
 const isActive = (index: number) => {
   if (page.currentPage === index) {
     return true;
