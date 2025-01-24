@@ -38,6 +38,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [visualizer()],
+    optimizeDeps: {
+      include: ["react", "react-dom"],
+      exclude: ["react-compiler-runtime"],
+    },
   },
   experimental: {
     contentIntellisense: true,
